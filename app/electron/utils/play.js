@@ -14,7 +14,7 @@ const getLastSaveGame = dir => {
   const sorted = files
     .map(name => {
       const p = join(dir, name);
-      return { path: p, ctime: statSync(p).ctime };
+      return { path: name, ctime: statSync(p).ctime };
     })
     .sort((a, b) => b.ctime - a.ctime);
 
@@ -110,6 +110,7 @@ const play = async (pack, selected, loadLast = false, oblige = null) => {
       });
       proc.unref();
     } else {
+      console.log(COMMAND.join(' '));
       const proc = spawn(sourceport.binary, COMMAND, {
         detached: true,
         stdio: 'ignore'
