@@ -2,6 +2,7 @@
 const path = require('path');
 const { app, BrowserWindow, Menu } = require('electron');
 const createMenu = require('./menu');
+const windowStateKeeper = require('electron-window-state');
 
 const whenProd = (whenProd, notProd) =>
   app.name.toLowerCase() === 'electron' ? notProd : whenProd;
@@ -9,15 +10,25 @@ const whenProd = (whenProd, notProd) =>
 let mainWindow;
 
 function createWindow() {
+
+  const mainWindowState = windowStateKeeper({
+    defaultWidth: 1075,
+    defaultHeight: 610
+  });
+
   mainWindow = new BrowserWindow({
-    width: 1075,
-    height: 610,
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height,
 
     webPreferences: {
       nodeIntegration: true,
       webSecurity: whenProd(true, false)
     }
   });
+
+  mainWindowState.manage(mainWindow);
 
   const url = whenProd(
     `file://${path.join(__dirname, '../production.html')}`,

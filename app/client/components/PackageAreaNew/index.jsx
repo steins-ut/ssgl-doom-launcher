@@ -121,7 +121,7 @@ const PackageAreaNew = () => {
         shortcut="ctrl+p,cmd+p"
         fluid
       />
-      {gstate.package.selected.length > 0 ? (
+      {gstate.package.selected.length > 0 || true ? (
         <IconButton svg={discSvg} onClick={onSaveAs} />
       ) : null}
       {gstate.package.selected.length > 0 || gstate.package.id ? (

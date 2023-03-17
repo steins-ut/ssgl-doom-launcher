@@ -89,6 +89,7 @@
   "dependencies": {
     "byte-size": "^6.2.0",
     "date-fns": "^2.10.0",
+    "electron-window-state": "^5.0.3",
     "framer-motion": "^1.10.2",
     "fuzzysearch": "^1.0.3",
     "got": "^10.7.0",
