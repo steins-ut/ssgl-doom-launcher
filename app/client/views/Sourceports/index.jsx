@@ -32,6 +32,7 @@ const SourcePorts = () => {
   const createSourceport = () => {
     const item = {
       id: null,
+      useFullPath: false,
       hasSavedir: false,
       hasConfig: false,
       paramLoad: '-loadgame',

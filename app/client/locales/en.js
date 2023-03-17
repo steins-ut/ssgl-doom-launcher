@@ -29,6 +29,7 @@ export default {
     packReset: 'Reset'
   },
   sourceports: {
+    useFullPath: 'Use Full Savegame Path (gzdoom <= 4.7.1)',
     paramSave: 'Save Directory Parameter',
     paramLoad: 'Load Savegame Parameter',
     parameter: 'Parameter',

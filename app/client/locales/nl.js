@@ -29,6 +29,7 @@ export default {
     packReset: 'Opnieuw Instellen'
   },
   sourceports: {
+    useFullPath: 'Om Het Volledige Savegame-Pad Te Gebruiken (gzdoom <= 4.7.1)',
     paramSave: 'Directoryparameter opslaan',
     paramLoad: 'Laad Spel parameter',
     parameter: 'Parameter',

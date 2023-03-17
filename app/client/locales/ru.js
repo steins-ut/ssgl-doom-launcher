@@ -19,6 +19,7 @@ export default {
     packReset: 'Сбросить'
   },
   sourceports: {
+    useFullPath: 'использовать полный путь сохранения (gzdoom <= 4.7.1)',
     parameter: 'Parameter',
     filename: 'File Name',
     delete: 'Удалить порт',

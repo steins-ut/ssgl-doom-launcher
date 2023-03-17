@@ -68,11 +68,11 @@ const play = async (pack, selected, loadLast = false, oblige = null) => {
       ]);
 
       if (loadLast) {
-        const save = getLastSaveGame(
-          join(settings.savepath, pack.datapath, 'saves')
-        );
+        const savePath = join(settings.savepath, pack.datapath, 'saves');
+        const save = getLastSaveGame(savePath);
         if (save) {
-          COMMAND = COMMAND.concat([sourceport.paramLoad, save]);
+          const fullSave = sourceport.useFullPath ? join(savePath, save) : save;
+          COMMAND = COMMAND.concat([sourceport.paramLoad, fullSave]);
         }
       }
     }

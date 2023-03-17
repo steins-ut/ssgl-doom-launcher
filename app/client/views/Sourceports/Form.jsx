@@ -199,6 +199,12 @@ const Form = ({ item, onSave, onDelete }) => {
               error={errors.paramLoad}
               fluid
             />
+            <Checkbox
+              value={form.useFullPath}
+              label={t('sourceports:useFullPath')}
+              name="useFullPath"
+              onChange={onComponent}
+            />
           </>
         ) : null}
       </FormCollection>
