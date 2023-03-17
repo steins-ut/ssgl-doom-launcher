@@ -17,8 +17,8 @@ function createWindow() {
   });
 
   mainWindow = new BrowserWindow({
-    x: mainWindowState.x,
-    y: mainWindowState.y,
+    //x: mainWindowState.x,
+    //y: mainWindowState.y,
     width: mainWindowState.width,
     height: mainWindowState.height,
 

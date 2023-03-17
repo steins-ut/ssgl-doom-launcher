@@ -110,7 +110,9 @@ export default {
     delete: 'Löschen',
     selectPackage: 'Paket wählen',
     noPackage: 'Kein Paket',
-    datadir: 'Daten'
+    datadir: 'Daten',
+    missingPort: 'Fehlender Sourceport',
+    deleted: 'Gelöscht'
   },
   errors: {
     SETTINGS_FILE: 'No Settings found',

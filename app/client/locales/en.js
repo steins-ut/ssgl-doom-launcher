@@ -111,7 +111,9 @@ export default {
     delete: 'Delete',
     selectPackage: 'Select Package',
     noPackage: 'No Package',
-    datadir: 'Data'
+    datadir: 'Data',
+    missingPort: 'Missing Sourceport',
+    deleted: 'Deleted'
   },
   errors: {
     SETTINGS_FILE: 'No Settings found',

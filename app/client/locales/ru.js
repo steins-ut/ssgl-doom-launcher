@@ -67,6 +67,8 @@ export default {
     toastSave: 'Saved Package',
     use: 'Use',
     play: 'Запустить',
-    delete: 'Удалить'
+    delete: 'Удалить',
+    missingPort: 'отсутствующий Sourceport',
+    deleted: 'удален'
   }
 };

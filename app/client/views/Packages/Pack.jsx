@@ -100,6 +100,12 @@ const Package = motion.custom(styled.div`
     opacity: 1;
     margin-top: 0;
   }
+
+  .errorText {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 `);
 
 const Pack = ({ pack, onUse, onData, onPlay, onDelete, onOblige }) => {
@@ -132,14 +138,19 @@ const Pack = ({ pack, onUse, onData, onPlay, onDelete, onOblige }) => {
         </div>
         <h1>{pack.name}</h1>
         <div className="meta">
-          {sourceport.name} - {pack.selected.length} Mods <br />
+          {!sourceport ? (
+              <div class="errorText">{t('packages:missingPort')}</div>
+          ) : null}
+          {sourceport?.name || t('packages:deleted')} - {pack.selected.length} Mods <br />
           {pack.lastplayed === 0
             ? t('packages:never')
             : t('packages:lastplayed', { value: pack.lastplayed })}
         </div>
 
         <div className="buttonContainer">
-          <IconButton svg={playSvg} onClick={onPlay(pack, sourceport)} />
+          {sourceport ? (
+            <IconButton svg={playSvg} onClick={onPlay(pack, sourceport)} />
+          ) : null}
           {gstate.settings.obligeActive ? (
             <IconButton svg={randSvg} onClick={onOblige} />
           ) : null}

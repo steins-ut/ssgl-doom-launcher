@@ -99,7 +99,9 @@ export default {
     delete: 'Verwijder',
     selectPackage: 'Kies een pakket',
     noPackage: 'Geen Pakket',
-    datadir: 'gegevens'
+    datadir: 'gegevens',
+    missingPort: 'Ontbrekende Sourceport',
+    deleted: 'Verwijderd'
   },
   errors: {
     SETTINGS_FILE: 'Geen Instellingen Gevonden',
