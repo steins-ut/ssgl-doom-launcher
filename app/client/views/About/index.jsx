@@ -141,6 +141,14 @@ const About = () => {
                 </Link>
                 <br />
                 Copyright (c) 2015 Thomas Petrovic
+                <br />
+                <br />
+                Minor fixes and updates beyond version 2.0.0
+                <br />
+                Petr Cermak -&nbsp;
+                <Link to="https://github.com/cermak-petr/ssgl-doom-launcher">
+                  GitHub repo
+                </Link>
               </p>
               <p
                 style={{
