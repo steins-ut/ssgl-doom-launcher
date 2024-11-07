@@ -16,7 +16,7 @@ ipcMain.handle('main/checkupdate', async () => {
     };
 
     const res = await got(
-      'https://api.github.com/repos/FreaKzero/ssgl-doom-launcher/releases'
+      'https://api.github.com/repos/cermak-petr/ssgl-doom-launcher/releases'
     ).json();
 
     if (res[0] && `v${app.getVersion()}` !== res[0].tag_name) {

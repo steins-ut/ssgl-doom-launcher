@@ -1,19 +1,19 @@
 {
   "name": "ssgl-doom-launcher",
-  "version": "2.0.1-devpreview.2",
+  "version": "2.0.1-beta.1",
   "description": "Modern Doom Frontend/Mod Launcher for every Desktop Operating System",
   "main": "./build/main-bundle.js",
-  "repository": "https://github.com/FreaKzero/ssgl-doom-launcher",
+  "repository": "https://github.com/cermak-petr/ssgl-doom-launcher",
   "scripts": {
     "start": "concurrently \"yarn dev:main\" \"yarn dev:webp\"",
     "dev:webp": "webpack-dev-server --mode development --config ./configs/wp.renderer.dev.js",
     "dev:main": "webpack --mode development --config ./configs/wp.main.dev.js",
     "build:main": "webpack --mode production --config ./configs/wp.main.prod.js",
     "build:renderer": "webpack --mode production --config ./configs/wp.renderer.prod.js",
-    "build": "yarn build:main && yarn build:renderer",
+    "build": "npm run build:main && npm run build:renderer",
     "lint": "eslint 'client/**/*.js?(x)' --fix && yarn stylelint 'client/**/*.js?(x)'",
     "clean": "rimraf ./dist && rimraf ./build",
-    "package": "yarn clean && yarn build && electron-builder build --publish never",
+    "package": "npm run clean && npm run build && electron-builder build -wlm --publish never",
     "auditfix": "npm i --package-lock-only && npm audit fix && rm yarn.lock && yarn import && rm package-lock.json"
   },
   "build": {
