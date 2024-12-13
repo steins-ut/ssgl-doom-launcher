@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
-import SVG from 'react-svg-inline';
 import styled from 'styled-components';
 
-import down from '#/assets/icon/dd.svg';
+import Down from '#/assets/icon/dd.svg';
 
 import { InputContainerStyle, InputStyle } from './Input';
 import Label from './Label';
@@ -196,7 +195,7 @@ const Dropdown = ({
           value={current.value}
           ref={selectRef}
         />
-        <SVG height={'12px'} svg={down} onClick={onIcon} />
+        <Down height={'12px'} onClick={onIcon} />
         {open ? (
           <OptionList ref={optionRef}>
             {options.map((item, key) => {

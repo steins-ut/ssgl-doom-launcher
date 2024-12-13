@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import BackDrop from './Backdrop';
 
-const Dialog = motion.custom(styled.div`
+const CustomDiv = styled.div`
   font-family: ${({ theme }) => theme.font.content};
   background: ${({ theme }) => theme.color.back};
   position: absolute;
@@ -30,7 +30,9 @@ const Dialog = motion.custom(styled.div`
       `0 -1px 4px ${theme.color.active}, 0 0 15px ${theme.color.active}`};
     margin-bottom: 15px;
   }
-`);
+`;
+
+const Dialog = motion.create(CustomDiv);
 
 const ModalMotion = ({ children, title, tiny }) => {
   const variants = {

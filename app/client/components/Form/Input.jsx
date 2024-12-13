@@ -113,7 +113,7 @@ const Input = ({
   );
 
   Checked.propTypes = {
-    size: PropTypes.number
+    size: PropTypes.string
   };
 
   return (

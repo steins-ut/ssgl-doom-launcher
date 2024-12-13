@@ -13,7 +13,7 @@ import Icon from '../../components/Mods/Icon';
 import { StoreContext } from '../../state';
 import { image, setTitle, useTranslation } from '../../utils';
 
-const Package = motion.custom(styled.div`
+const CustomDiv = styled.div`
   display: inline-block;
   position: relative;
   margin: 0 10px 10px 0;
@@ -106,7 +106,9 @@ const Package = motion.custom(styled.div`
     font-weight: bold;
     text-transform: uppercase;
   }
-`);
+`;
+
+const Package = motion.create(CustomDiv);
 
 const Pack = ({ pack, onUse, onData, onPlay, onDelete, onOblige }) => {
   setTitle('packages');
@@ -149,13 +151,13 @@ const Pack = ({ pack, onUse, onData, onPlay, onDelete, onOblige }) => {
 
         <div className="buttonContainer">
           {sourceport ? (
-            <IconButton svg={playSvg} onClick={onPlay(pack, sourceport)} />
+            <IconButton SVG={playSvg} onClick={onPlay(pack, sourceport)} />
           ) : null}
           {gstate.settings.obligeActive ? (
-            <IconButton svg={randSvg} onClick={onOblige} />
+            <IconButton SVG={randSvg} onClick={onOblige} />
           ) : null}
-          <IconButton svg={useSvg} onClick={onUse(pack.id)} />
-          <IconButton svg={folderSvg} onClick={onData(pack.datapath)} />
+          <IconButton SVG={useSvg} onClick={onUse(pack.id)} />
+          <IconButton SVG={folderSvg} onClick={onData(pack.datapath)} />
         </div>
       </div>
     </Package>

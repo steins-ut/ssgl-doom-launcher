@@ -40,7 +40,7 @@ const ConfigDropdown = ({ onChange, value, error }) => {
         fluid
       />
       <IconButton
-        svg={refreshSvg}
+        SVG={refreshSvg}
         onClick={getOptions}
         load={load}
         style={{ marginRight: 0 }}

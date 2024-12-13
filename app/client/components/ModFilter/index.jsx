@@ -67,7 +67,7 @@ const ModFilter = ({
         shortcut="ctrl+d,cmd+d"
       />
       <IconButton
-        svg={refreshSvg}
+        SVG={refreshSvg}
         onClick={onRefresh}
         load={refreshLoad}
         style={{ margin: 0 }}

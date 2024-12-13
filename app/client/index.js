@@ -1,7 +1,7 @@
 import './global.css';
 
 import React, { useEffect, useReducer } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from 'styled-components';
 
 import { Body, Head, MainLoader, Routes, ToastContainer } from './components';
@@ -12,7 +12,6 @@ import { initState, reducer, StoreContext } from './state';
 import themes from './Theme';
 import { useIpc } from './utils';
 import { useHashLocation } from './utils';
-
 const App = () => {
   const [gstate, dispatch] = useReducer(reducer, initState);
   const [fetch, loading] = useIpc({ delayLoad: 1000 });
@@ -77,7 +76,8 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const root = createRoot(document.getElementById('app'));
+root.render(<App />);
 
 if (module && module.hot) {
   module.hot.accept();

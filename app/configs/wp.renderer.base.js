@@ -9,10 +9,6 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
-      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
@@ -30,14 +26,24 @@ module.exports = {
       },
       {
         test: /\.(eot|woff|woff2|ttf)([\?]?.*)$/,
-        use: ['file-loader']
+        type: 'asset/resource'
       },
       {
         test: /\.(ogg)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]'
+        type: 'asset/resource',
+        generator: {
+          filename: '[path][name].[ext]'
         }
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: { svgo: false }
+          }
+        ]
       }
     ]
   },

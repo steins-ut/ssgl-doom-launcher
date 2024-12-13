@@ -209,6 +209,12 @@ const Settings = () => {
                   value={form.theme}
                   onChange={onComponent}
                 />
+                <Checkbox
+                  value={form.soundActive}
+                  label={t('settings:soundActive')}
+                  name="soundActive"
+                  onChange={onComponent}
+                />
                 {gstate.sourceports.length > 0 ? (
                   <Dropdown
                     name="defaultsourceport"

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SvgInline from 'react-svg-inline';
 import styled from 'styled-components';
 
 import circle from '#/assets/icon/circle.svg';
@@ -36,9 +35,10 @@ const names = {
 };
 
 const Icon = ({ name, danger, stroke, ...rest }) => {
+  const SVG = names[name];
   return names[name] ? (
     <IconStyle stroke={stroke} danger={danger}>
-      <SvgInline {...rest} svg={names[name]} component="div" />
+      <SVG component={'div'} {...rest} />
     </IconStyle>
   ) : null;
 };

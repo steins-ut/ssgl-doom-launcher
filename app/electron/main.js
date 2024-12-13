@@ -3,6 +3,10 @@ const path = require('path');
 const { app, BrowserWindow, Menu } = require('electron');
 const createMenu = require('./menu');
 const windowStateKeeper = require('electron-window-state');
+const {
+  initialize: remoteInitialize,
+  enable: remoteEnable
+} = require('@electron/remote/main');
 
 const whenProd = (whenProd, notProd) =>
   app.name.toLowerCase() === 'electron' ? notProd : whenProd;
@@ -10,11 +14,12 @@ const whenProd = (whenProd, notProd) =>
 let mainWindow;
 
 function createWindow() {
-
   const mainWindowState = windowStateKeeper({
     defaultWidth: 1075,
     defaultHeight: 610
   });
+
+  remoteInitialize();
 
   mainWindow = new BrowserWindow({
     //x: mainWindowState.x,
@@ -23,10 +28,14 @@ function createWindow() {
     height: mainWindowState.height,
 
     webPreferences: {
+      contextIsolation: false,
       nodeIntegration: true,
+      nodeIntegrationInWorker: true,
       webSecurity: whenProd(true, false)
     }
   });
+
+  remoteEnable(mainWindow.webContents);
 
   mainWindowState.manage(mainWindow);
 

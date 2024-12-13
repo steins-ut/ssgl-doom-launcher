@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SvgInline from 'react-svg-inline';
 import styled from 'styled-components';
 
 import { ButtonStyle } from './Button';
@@ -68,18 +67,18 @@ const IconButtonStyle = styled(ButtonStyle)`
   }
 `;
 
-const IconButton = ({ svg, load, tooltip, ...rest }) => (
+const IconButton = ({ SVG, load, tooltip, ...rest }) => (
   <>
     <IconButtonStyle className={load ? 'load' : undefined} {...rest}>
       {tooltip ? <div className="tooltip">{tooltip}</div> : null}
-      <SvgInline svg={svg} />
+      <SVG />
     </IconButtonStyle>
   </>
 );
 
 IconButton.propTypes = {
   load: PropTypes.bool,
-  svg: PropTypes.any.isRequired,
+  SVG: PropTypes.any.isRequired,
   tooltip: PropTypes.string
 };
 

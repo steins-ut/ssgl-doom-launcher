@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useLayoutEffect, useRef, useState } from 'react';
-import VirtualList from 'react-tiny-virtual-list';
 import styled from 'styled-components';
+import { VList } from 'virtua';
 
 import ModItem from './ModItem';
 
@@ -40,21 +40,20 @@ const ModBox = ({ data, onClick, onTag, fixed }) => {
       {fixed ? <div className="fixed">{fixed}</div> : null}
 
       <ul>
-        <VirtualList
-          width="100%"
-          height={height}
-          itemCount={data.length}
+        <VList
+          style={{ width: '100%', height: height }}
+          count={data.length}
           itemSize={77}
-          renderItem={({ index, style }) => (
+        >
+          {data.map(item => (
             <ModItem
-              style={style}
-              key={`mod_${data[index].id}`}
-              item={data[index]}
-              onSelect={onClick(data[index].id)}
+              key={`mod_${item.id}`}
+              item={item}
+              onSelect={onClick(item.id)}
               onTag={onTag}
             />
-          )}
-        />
+          ))}
+        </VList>
       </ul>
     </BoxStyle>
   );

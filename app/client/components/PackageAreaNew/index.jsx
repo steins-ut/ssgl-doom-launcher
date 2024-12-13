@@ -109,7 +109,7 @@ const PackageAreaNew = () => {
       />
 
       {gstate.package.id !== null ? (
-        <IconButton svg={editSvg} onClick={() => setModalOpen(true)} />
+        <IconButton SVG={editSvg} onClick={() => setModalOpen(true)} />
       ) : null}
 
       <Dropdown
@@ -122,10 +122,10 @@ const PackageAreaNew = () => {
         fluid
       />
       {gstate.package.selected.length > 0 || true ? (
-        <IconButton svg={discSvg} onClick={onSaveAs} />
+        <IconButton SVG={discSvg} onClick={onSaveAs} />
       ) : null}
       {gstate.package.selected.length > 0 || gstate.package.id ? (
-        <IconButton svg={trashSvg} onClick={onReset} />
+        <IconButton SVG={trashSvg} onClick={onReset} />
       ) : null}
     </PackageAreaStyle>
   );

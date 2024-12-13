@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Svg from 'react-svg-inline';
 import styled from 'styled-components';
 
-import spinner from '#/assets/icon/spinner.svg';
+import Spinner from '#/assets/icon/spinner.svg';
 
 const SpinnerStyle = styled.div`
   svg {
@@ -65,7 +64,7 @@ const Button = ({
     >
       {load ? (
         <SpinnerStyle>
-          <Svg component="div" svg={spinner} height="15" />
+          <Spinner component="div" height="15" />
         </SpinnerStyle>
       ) : (
         [children]

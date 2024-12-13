@@ -1,5 +1,4 @@
 import { app, ipcMain } from 'electron';
-import got from 'got';
 
 import { getJSON } from '../utils/json';
 import { walkWadDir } from '../utils/mods';
@@ -15,8 +14,10 @@ ipcMain.handle('main/checkupdate', async () => {
       changelog: null
     };
 
-    const res = await got(
-      'https://api.github.com/repos/cermak-petr/ssgl-doom-launcher/releases'
+    const res = await (
+      await fetch(
+        'https://api.github.com/repos/cermak-petr/ssgl-doom-launcher/releases'
+      )
     ).json();
 
     if (res[0] && `v${app.getVersion()}` !== res[0].tag_name) {

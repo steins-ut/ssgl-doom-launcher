@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SVG from 'react-svg-inline';
 import styled from 'styled-components';
 
-import svgLogo from '#/assets/Logo.svg';
+import LogoSVG from '#/assets/Logo.svg';
 
 const LogoContainer = styled.div`
   text-align: ${p => (p.center ? 'center' : 'left')};
@@ -14,7 +13,7 @@ const LogoContainer = styled.div`
 const Logo = ({ height = '70', center = false }) => {
   return (
     <LogoContainer center={center}>
-      <SVG height={height} svg={svgLogo} />
+      <LogoSVG height={height} />
     </LogoContainer>
   );
 };

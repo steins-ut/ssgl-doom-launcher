@@ -1,6 +1,6 @@
 import { remote } from 'electron';
 import React, { useContext } from 'react';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
 import styled from 'styled-components';
 
 import { StoreContext } from '../state';
@@ -54,7 +54,7 @@ const Update = () => {
       strict
     >
       <MarkdownStyle>
-        <ReactMarkdown source={gstate.update.changelog} />
+        <Markdown>{gstate.update.changelog}</Markdown>
       </MarkdownStyle>
       <div style={{ textAlign: 'right', marginTop: '20px' }}>
         <Button
