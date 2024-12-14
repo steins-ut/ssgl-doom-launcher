@@ -5,6 +5,7 @@ const createMenu = require('./menu');
 const windowStateKeeper = require('electron-window-state');
 const {
   initialize: remoteInitialize,
+  isInitialized: isRemoteInitialized,
   enable: remoteEnable
 } = require('@electron/remote/main');
 
@@ -19,7 +20,6 @@ function createWindow() {
     defaultHeight: 610
   });
 
-  remoteInitialize();
 
   mainWindow = new BrowserWindow({
     //x: mainWindowState.x,
@@ -35,6 +35,9 @@ function createWindow() {
     }
   });
 
+  if (!isRemoteInitialized()) {
+    remoteInitialize();
+  }
   remoteEnable(mainWindow.webContents);
 
   mainWindowState.manage(mainWindow);

@@ -30,7 +30,7 @@ const openApplicationSettings = async () => {
   }
 };
 
-const createMenu = (win) => {
+const createMenu = win => {
   const template = [
     ...(isMac
       ? [
